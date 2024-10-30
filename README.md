@@ -15,6 +15,6 @@ pip install -r requirements.txt
 
 Execute as migrações e inicie o servidor:
 
-python manage.py makemigrations
-python manage.py migrate
+python manage.py makemigrations //
+python manage.py migrate  //
 python manage.py runserver
