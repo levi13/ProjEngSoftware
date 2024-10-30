@@ -1,0 +1,11 @@
+{% extends "schedule/base.html" %}
+
+{% block content %}
+<h2>Excluir Agendamento</h2>
+<p>Tem certeza de que deseja excluir o agendamento: "{{ agendamento.descricao }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a href="{% url 'agendamentos_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

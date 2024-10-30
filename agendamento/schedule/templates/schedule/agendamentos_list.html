@@ -1,0 +1,23 @@
+{% extends "schedule/base.html" %}
+
+{% block content %}
+<h2>Meus Agendamentos</h2>
+<a href="{% url 'agendamento_create' %}" class="btn btn-primary mb-3">Novo Agendamento</a>
+<ul class="list-group">
+
+<form method="get" class="form-inline mb-3">
+    <input type="text" name="q" placeholder="Pesquisar agendamentos" class="form-control mr-2" value="{{ request.GET.q }}">
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+    {% for agendamento in agendamentos %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>{{ agendamento.data }} - {{ agendamento.hora }}: {{ agendamento.descricao }}</span>
+            <span>
+                <a href="{% url 'agendamento_edit' agendamento.id %}" class="btn btn-sm btn-secondary">Editar</a>
+                <a href="{% url 'agendamento_delete' agendamento.id %}" class="btn btn-sm btn-danger">Excluir</a>
+            </span>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
